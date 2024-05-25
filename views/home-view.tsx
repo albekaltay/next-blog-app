@@ -42,10 +42,10 @@ const HomeView = () => {
             onReset={handleReset}
           />
 
-          {data.posts.length === 0 ? (
+          {data?.posts.length === 0 ? (
             <div>No Data Found.</div>
           ) : (
-            data.posts.map((item: IPost) => (
+            data?.posts.map((item: IPost) => (
               <Post
                 key={item.id}
                 id={item.id}
