@@ -22,7 +22,7 @@ export default function Header() {
   const { data: session } = useSession();
 
   const handleLogout = () => {
-    signOut({ callbackUrl: "/auth/signin" });
+    signOut({ callbackUrl: "/auth/signin", redirect: true });
   };
   return (
     <header className="sticky top-0 z-50 transition-all bg-slate-950  h-16 flex items-center w-full">
