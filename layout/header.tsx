@@ -15,14 +15,14 @@ import { Button } from "@/components/ui/button";
 import { User } from "lucide-react";
 // next-auth
 import { signOut, useSession } from "next-auth/react";
+import { useAuth } from "@/store/contexts/AuthContext";
 
 // ----------------------------------------------------------------------
 
 export default function Header() {
+  const { signOut } = useAuth();
   const { data: session } = useSession();
-  const handleLogout = () => {
-    signOut();
-  };
+
   return (
     <header className="sticky top-0 z-50 transition-all bg-slate-950  h-16 flex items-center w-full">
       <nav className="container flex justify-between items-center">
@@ -56,7 +56,7 @@ export default function Header() {
                 <DropdownMenuItem>Profile</DropdownMenuItem>
               </Link>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={handleLogout}>Logout</DropdownMenuItem>
+              <DropdownMenuItem onClick={signOut}>Logout</DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
