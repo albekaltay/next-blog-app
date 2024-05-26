@@ -6,6 +6,8 @@ import { NextAuthOptions, User } from "next-auth";
 
 const prisma = new PrismaClient();
 
+const PRODUCTUON_URL = "https://main--next-blog-app-albek.netlify.app";
+
 const authOptions: NextAuthOptions = {
   providers: [
     CredentialsProvider({
@@ -48,8 +50,7 @@ const authOptions: NextAuthOptions = {
       return session;
     },
     async redirect({ url, baseUrl }) {
-      const redirectUrl = process.env.NEXTAUTH_URL || baseUrl;
-      return url.startsWith(baseUrl) ? url : redirectUrl;
+      return PRODUCTUON_URL + "/auth/signin";
     },
   },
   secret: process.env.SECRET,
