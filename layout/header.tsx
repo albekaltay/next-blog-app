@@ -15,14 +15,16 @@ import { Button } from "@/components/ui/button";
 import { User } from "lucide-react";
 // next-auth
 import { signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 // ----------------------------------------------------------------------
 
 export default function Header() {
   const { data: session } = useSession();
-
+  const router = useRouter();
   const handleLogout = () => {
-    signOut({ callbackUrl: "/auth/signin", redirect: true });
+    signOut();
+    router.push("/");
   };
   return (
     <header className="sticky top-0 z-50 transition-all bg-slate-950  h-16 flex items-center w-full">
