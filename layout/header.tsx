@@ -23,8 +23,7 @@ export default function Header() {
   const { data: session } = useSession();
   const router = useRouter();
   const handleLogout = () => {
-    signOut();
-    router.push("/");
+    signOut({ callbackUrl: process.env.NEXTAUTH_URL });
   };
   return (
     <header className="sticky top-0 z-50 transition-all bg-slate-950  h-16 flex items-center w-full">
