@@ -27,7 +27,7 @@ export default function Header() {
   const router = useRouter();
 
   const signOut = async () => {
-    await nextAuthSignOut({ redirect: true });
+    await nextAuthSignOut({ redirect: false });
     router.replace("https://main--next-blog-app-albek.netlify.app/auth/signin");
   };
 
