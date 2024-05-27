@@ -27,8 +27,7 @@ export default function Header() {
   const router = useRouter();
 
   const signOut = async () => {
-    await nextAuthSignOut({ redirect: false });
-    router.replace("https://main--next-blog-app-albek.netlify.app/auth/signin");
+    await nextAuthSignOut();
   };
 
   return (
@@ -64,7 +63,9 @@ export default function Header() {
                 <DropdownMenuItem>Profile</DropdownMenuItem>
               </Link>
               <DropdownMenuSeparator />
-              <DropdownMenuItem onClick={signOut}>Logout</DropdownMenuItem>
+              <Link href={"/auth/signin"}>
+                <DropdownMenuItem onClick={signOut}>Logout</DropdownMenuItem>
+              </Link>
             </DropdownMenuContent>
           </DropdownMenu>
         </div>
