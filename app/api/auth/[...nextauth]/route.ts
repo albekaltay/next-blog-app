@@ -47,9 +47,9 @@ const authOptions: NextAuthOptions = {
       };
       return session;
     },
-    async redirect({ url, baseUrl }) {
-      return process.env.NEXTAUTH_URL + "/auth/signin";
-    },
+    // async redirect({ url, baseUrl }) {
+    //   return process.env.NEXTAUTH_URL + "/auth/signin";
+    // },
   },
   secret: process.env.SECRET,
   session: {
