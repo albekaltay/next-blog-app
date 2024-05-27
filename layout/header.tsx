@@ -14,14 +14,22 @@ import { Button } from "@/components/ui/button";
 // icon
 import { User } from "lucide-react";
 // next-auth
-import { signOut, useSession } from "next-auth/react";
-import { useAuth } from "@/store/contexts/AuthContext";
+import { signOut as nextAuthSignOut, useSession } from "next-auth/react";
+// import { useAuth } from "@/store/contexts/AuthContext";
+import { useRouter } from "next/navigation";
 
 // ----------------------------------------------------------------------
 
 export default function Header() {
-  const { signOut } = useAuth();
+  // const { signOut } = useAuth();
   const { data: session } = useSession();
+
+  const router = useRouter();
+
+  const signOut = async () => {
+    await nextAuthSignOut({ redirect: true });
+    router.replace(process.env.NEXTAUTH_URL! + "/auth/signin");
+  };
 
   return (
     <header className="sticky top-0 z-50 transition-all bg-slate-950  h-16 flex items-center w-full">
