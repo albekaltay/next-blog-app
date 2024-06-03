@@ -20,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <Head />
       <body className={inter.className}>
+      <script src="https://cdn.popupsmart.xyz/bundle.js" data-id="418480" async defer/>
         <AuthProvider>
           <SessionProvider>
             <Providers>{children}</Providers>
